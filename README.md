@@ -1,4 +1,4 @@
-#Conta Azul
+#New Angular Kickoff
 AngularJS application using Angular-Kickoff ( https://github.com/marcelinhov2/angular-kickoff )
 
 ##Installation
