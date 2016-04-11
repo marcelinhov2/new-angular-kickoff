@@ -1,3 +1,4 @@
+var fs = require('fs');
 var path = require('path');
 var gulp = require('gulp');
 var argv = require('yargs').argv;
@@ -18,6 +19,8 @@ var templateCache = require('gulp-angular-templatecache');
 var runSequence = require('run-sequence');
 var preprocess = require('gulp-preprocess');
 var rev = require('gulp-rev');
+var filter = require('gulp-filter');
+var cleanCSS = require('gulp-clean-css');
 
 var env = argv.compress ? 'production' : 'testing';
 var folder = argv.compress ? 'dist' : 'www';
@@ -28,7 +31,7 @@ var devPaths = {
 	fonts: 'src/assets/fonts/**/*',
 	images: 'src/assets/images/**/*',
 	styles: 'src/styles/**/*.less',
-	baseStyle: 'src/styles/base.less',
+	baseStyle: 'src/styles/main.less',
 	scripts: 'src/app/**/*.js',
 	partials: 'src/app/**/*.html'
 };
@@ -40,12 +43,14 @@ var distPaths = {
 	fonts: folder + "/fonts"
 }
 
+var bowerCopyFiles = [];
+
 gulp.task("clean", function(cb) {
 	rimraf.sync(folder);
 	cb(null);
 });
 
-gulp.task("concat_bower", function() {
+gulp.task("bower:scripts", function() {
 	var jsBowerFiles = bowerFiles({
 		filter: /\.js$/i,
 		paths: {
@@ -66,6 +71,18 @@ gulp.task("concat_bower", function() {
 		.pipe(
 			gulp.dest(distPaths.app)
 		);
+});
+
+gulp.task('bower:styles', function() {
+    return gulp.src(bowerFiles(), {
+        base: './bower_components'
+    })
+    .pipe(filter([
+        '**/*.{css,scss}'
+    ]))
+    .pipe(concat('bower.css'))
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(gulp.dest(distPaths.styles));
 });
 
 gulp.task('scripts', function() {
@@ -244,8 +261,9 @@ gulp.task('compile', function(cb) {
 
 gulp.task('up', function(cb) {
 	runSequence(
-		'clean', 
-		'concat_bower', 
+		'clean',
+		'bower:styles', 
+		'bower:scripts', 
 		'compile', 
 		'watch', 
 		'server', 
@@ -256,7 +274,8 @@ gulp.task('up', function(cb) {
 gulp.task('build', function(cb) {
 	runSequence(
 		'clean', 
-		'concat_bower', 
+		'bower:styles',
+		'bower:scripts', 
 		'compile', 
 		cb
 	);

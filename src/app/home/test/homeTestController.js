@@ -1,15 +1,14 @@
 (function() {
-  function HomeTestController(
-  	$scope
-  ){
-	function init(){
-		console.log('init test')
-		$scope.test = 'home Test';
+	function HomeTestController(
+		$scope
+	){
+		function init(){
+			$scope.test = 'home Test';
+		}
+
+		init();
 	}
 
-	init();
-  }
-
-  angular.module('app').controller('homeTestController', ['$scope', HomeTestController]);
+	angular.module('app').controller('homeTestController', ['$scope', HomeTestController]);
 
 })();

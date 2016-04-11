@@ -17,6 +17,7 @@
     "angular-local-storage": "latest",
     "ui-router": "latest",
     "ui-router-extras": "latest",
-    "lodash": "latest"
+    "lodash": "latest",
+    "ngDialog": "latest"
   }
 }
