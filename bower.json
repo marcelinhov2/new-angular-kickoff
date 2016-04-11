@@ -1,0 +1,34 @@
+{
+  "name": "test",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {},
+  "dependencies": {
+    "angular": "1.4.9",
+    "angular-mocks": "1.4.9",
+    "angular-resource": "1.4.9",
+    "lodash": "latest",
+    "ui-router": "latest",
+    "angular-local-storage": "latest",
+    "ui-router-extras": "latest"
+  },
+  "overrides": {
+    "angular-i18n": {
+      "main": "./angular-locale_pt-br.js"
+    }
+  },
+  "resolutions": {
+    "angular": "1.4.9",
+    "angular-mocks": "1.4.9",
+    "angular-resource": "1.4.9",
+    "string-mask": "~0.2.0"
+  }
+}

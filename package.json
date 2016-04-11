@@ -1,0 +1,36 @@
+{
+  "name": "new-angular-kickoff",
+  "scripts": {
+    "postinstall": "bower install"
+  },
+  "dependencies": {
+    "bower": "latest",
+    "coffee-script": "latest",
+    "event-stream": "latest",
+    "gulp": "latest",
+    "main-bower-files": "latest",
+    "gulp-concat": "latest",
+    "gulp-connect": "latest",
+    "gulp-imagemin": "latest",
+    "gulp-inject": "latest",
+    "gulp-less": "latest",
+    "gulp-rev": "latest",
+    "gulp-rename": "latest",
+    "gulp-angular-templatecache": "latest",
+    "gulp-uglify": "latest",
+    "gulp-preprocess": "latest",
+    "gulp-if": "latest",
+    "gulp-cached": "latest",
+    "run-sequence": "latest",
+    "rimraf": "latest",
+    "open": "latest",
+    "yargs": "latest"
+  },
+  "devDependencies": {
+    "jasmine-core": "latest",
+    "karma": "latest",
+    "karma-jasmine": "latest",
+    "karma-phantomjs-launcher": "latest",
+    "phantomjs-prebuilt": "latest"
+  }
+}

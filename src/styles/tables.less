@@ -1,0 +1,41 @@
+.table{
+  border:1px @lightgray solid;
+
+  a{
+    text-decoration:underline;
+  }
+
+  &.table-hover tbody tr:hover td {
+    background: @lavender;
+    border-top: 1px @skyblue solid;
+    border-bottom: 1px @skyblue solid;
+
+    .checkbox{
+      label{
+        &::before{
+          border: 1px solid @skyblue;
+        }
+      }
+    }
+  }
+
+  thead{
+    th{
+      border-bottom:0 !important;
+    }
+
+    tr{
+      background:@ghostwhite;
+    }
+  }
+
+  tr{
+    background:@white;
+    border:1px @lightgray solid;
+
+    th, td{
+      color:@darkslateblue;
+      padding:15px !important;
+    }
+  }
+}
