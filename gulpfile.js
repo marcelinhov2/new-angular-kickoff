@@ -21,6 +21,7 @@ var preprocess = require('gulp-preprocess');
 var rev = require('gulp-rev');
 var filter = require('gulp-filter');
 var cleanCSS = require('gulp-clean-css');
+var jshint = require('gulp-jshint');
 
 var env = argv.compress ? 'production' : 'testing';
 var folder = argv.compress ? 'dist' : 'www';
@@ -96,6 +97,29 @@ gulp.task('scripts', function() {
 					NODE_ENV: env
 				}
 			})
+		)
+		.pipe(
+			gulpif(argv.compress, jshint(
+				{
+					"maxparams": 10,
+					"indent": false,
+					"camelcase": true,
+					"eqeqeq": true,
+					"forin": true,
+					"immed": true,
+					"latedef": true,
+					"noarg": true,
+					"noempty": true,
+					"nonew": true,
+					"unused": true,
+					"laxbreak": true,
+					"laxcomma": true,
+
+					"globals": { 
+						"require": false
+					}
+				}
+			))
 		)
 		.pipe(
 			gulpif(argv.compress, uglify())
