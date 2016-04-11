@@ -10,19 +10,13 @@
     "test",
     "tests"
   ],
-  "devDependencies": {},
   "dependencies": {
-    "angular": "1.4.9",
-    "angular-mocks": "1.4.9",
-    "angular-resource": "1.4.9",
-    "lodash": "latest",
-    "ui-router": "latest",
+    "angular": "latest",
+    "angular-mocks": "latest",
+    "angular-resource": "latest",
     "angular-local-storage": "latest",
-    "ui-router-extras": "latest"
-  },
-  "resolutions": {
-    "angular": "1.4.9",
-    "angular-mocks": "1.4.9",
-    "angular-resource": "1.4.9"
+    "ui-router": "latest",
+    "ui-router-extras": "latest",
+    "lodash": "latest"
   }
 }
