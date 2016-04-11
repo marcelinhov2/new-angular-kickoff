@@ -5,7 +5,6 @@
   },
   "devDependencies": {
     "bower": "latest",
-    "coffee-script": "latest",
     "event-stream": "latest",
     "gulp": "latest",
     "main-bower-files": "latest",
