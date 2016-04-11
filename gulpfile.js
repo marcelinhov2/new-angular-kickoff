@@ -79,7 +79,7 @@ gulp.task('bower:styles', function() {
         base: './bower_components'
     })
     .pipe(filter([
-        '**/*.{css,scss}'
+        '**/*.{css}'
     ]))
     .pipe(concat('bower.css'))
     .pipe(cleanCSS({compatibility: 'ie8'}))
