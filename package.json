@@ -3,7 +3,7 @@
   "scripts": {
     "postinstall": "bower install"
   },
-  "dependencies": {
+  "devDependencies": {
     "bower": "latest",
     "coffee-script": "latest",
     "event-stream": "latest",
@@ -24,9 +24,8 @@
     "run-sequence": "latest",
     "rimraf": "latest",
     "open": "latest",
-    "yargs": "latest"
-  },
-  "devDependencies": {
+    "yargs": "latest",
+    "gulp": "^3.9.1",
     "jasmine-core": "latest",
     "karma": "latest",
     "karma-jasmine": "latest",
