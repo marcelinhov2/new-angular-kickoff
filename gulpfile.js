@@ -122,6 +122,9 @@ gulp.task('scripts', function() {
 			))
 		)
 		.pipe(
+			gulpif(argv.compress, jshint.reporter('default'))
+		)
+		.pipe(
 			gulpif(argv.compress, uglify())
 		)
 		.pipe(

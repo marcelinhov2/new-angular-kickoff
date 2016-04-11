@@ -8,6 +8,6 @@
   }
 
   angular
-    .module('app', new App);
+    .module('app', App());
 
 })();
