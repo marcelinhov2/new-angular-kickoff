@@ -27,21 +27,21 @@ var env = argv.compress ? 'production' : 'testing';
 var folder = argv.compress ? 'dist' : 'www';
 
 var devPaths = {
-	base: 'src/',
-	index: 'src/index.html',
-	fonts: 'src/assets/fonts/**/*',
-	images: 'src/assets/images/**/*',
-	styles: 'src/styles/**/*.less',
-	baseStyle: 'src/styles/main.less',
-	scripts: 'src/app/**/*.js',
-	partials: 'src/app/**/*.html'
+	base      : 'src/',
+	index     : 'src/index.html',
+	fonts     : 'src/assets/fonts/**/*',
+	images    : 'src/assets/images/**/*',
+	styles    : 'src/assets/styles/**/*.less',
+	baseStyle : 'src/assets/styles/main.less',
+	scripts   : 'src/app/**/*.js',
+	partials  : 'src/app/**/*.html'
 };
 
 var distPaths = {
-	app: folder + "/app",
-	styles: folder + "/styles",
-	images: folder + "/images",
-	fonts: folder + "/fonts"
+	app    : folder + "/app",
+	styles : folder + "/assets/styles",
+	images : folder + "/assets/images",
+	fonts  : folder + "/assets/fonts"
 }
 
 var bowerCopyFiles = [];
@@ -75,15 +75,23 @@ gulp.task("bower:scripts", function() {
 });
 
 gulp.task('bower:styles', function() {
-    return gulp.src(bowerFiles(), {
-        base: './bower_components'
-    })
-    .pipe(filter([
-        '**/*.{css}'
-    ]))
-    .pipe(concat('bower.css'))
-    .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(gulp.dest(distPaths.styles));
+	var cssBowerFiles = bowerFiles({
+		filter: /\.css$/i,
+		paths: {
+			bowerDirectory: './bower_components'
+		}
+	});
+
+	return gulp.src(cssBowerFiles)
+		.pipe(
+			concat('bower.css')
+		)
+		.pipe(
+			cleanCSS({compatibility: 'ie8'})
+		)
+		.pipe(
+			gulp.dest(distPaths.styles)
+		);
 });
 
 gulp.task('scripts', function() {
@@ -214,7 +222,7 @@ gulp.task('partials', function() {
 gulp.task('index', function() {
 	var scripts, styles;
 
-	styles = folder + "/styles/**/*.css";
+	styles = distPaths.styles + "/**/*.css";
 	
 	if(argv.compress){
 		scripts = [
