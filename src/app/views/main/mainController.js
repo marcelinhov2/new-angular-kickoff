@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	function AppController(
+	function MainController(
 		$scope
 	){
 	
@@ -12,6 +12,7 @@
 		init();
 	}
 
-	angular.module('app').controller('appController', ['$scope', AppController]);
+	angular.module('app')
+		.controller('mainController', ['$scope', MainController]);
 
 })();

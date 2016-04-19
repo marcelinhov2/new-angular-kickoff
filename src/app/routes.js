@@ -3,8 +3,8 @@
 		$stateProvider
 			.state('App', {
 				abstract: true,
-				template: '<div ui-view="main"></div>',
-				controller: 'appController'
+				templateUrl: '/app/views/main/mainTemplate.html',
+				controller: 'mainController'
 			})
 			.state({
 				name: 'App.home',
