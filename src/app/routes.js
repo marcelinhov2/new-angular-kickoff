@@ -11,7 +11,7 @@
 				abstract: true,
 				views: {
 					'main@App': {
-						templateUrl: '/app/home/homeTemplate.html',
+						templateUrl: '/app/views/home/homeTemplate.html',
 						controller: 'homeController'
 					}
 				}
@@ -21,7 +21,7 @@
 				url: '/home',
 				views: {
 					'home@App.home': {
-						templateUrl: '/app/home/index/homeIndexTemplate.html',
+						templateUrl: '/app/views/home/index/homeIndexTemplate.html',
 						controller: 'homeIndexController'
 					}
 				}
@@ -31,7 +31,7 @@
 				url: '/test',
 				views: {
 					'home@App.home': {
-						templateUrl: '/app/home/test/homeTestTemplate.html',
+						templateUrl: '/app/views/home/test/homeTestTemplate.html',
 						controller: 'homeTestController'
 					}
 				}
