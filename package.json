@@ -36,5 +36,12 @@
   },
   "dependencies": {
     "gulp-uglifycss": "^1.0.6"
+  },
+  "scripts" : {
+    "remove-remote" : "rm -rf .git",
+    "server" : "./node_modules/.bin/gulp up",
+    "compile" : "./node_modules/.bin/gulp compile",
+    "build" : "./node_modules/.bin/gulp build --compress",
+    "tests" : "./node_modules/karma/bin/karma start tests/karma-tests/karma.conf.js"
   }
 }
