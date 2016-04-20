@@ -107,7 +107,7 @@ gulp.task('scripts', function() {
 			})
 		)
 		.pipe(
-			gulpif(argv.compress, jshint(
+			jshint(
 				{
 					"maxparams": 10,
 					"indent": false,
@@ -127,7 +127,10 @@ gulp.task('scripts', function() {
 						"require": false
 					}
 				}
-			))
+			)
+		)
+		.pipe(
+			jshint.reporter('default')
 		)
 		.pipe(
 			gulpif(argv.compress, jshint.reporter('default'))
