@@ -33,5 +33,8 @@
     "rimraf": "latest",
     "run-sequence": "latest",
     "yargs": "latest"
+  },
+  "dependencies": {
+    "gulp-uglifycss": "^1.0.6"
   }
 }

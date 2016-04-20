@@ -22,6 +22,7 @@ var rev = require('gulp-rev');
 var filter = require('gulp-filter');
 var cleanCSS = require('gulp-clean-css');
 var jshint = require('gulp-jshint');
+var uglifycss = require('gulp-uglifycss');
 
 var env = argv.compress ? 'production' : 'testing';
 var folder = argv.compress ? 'dist' : 'www';
@@ -90,6 +91,9 @@ gulp.task('bower:styles', function() {
 			cleanCSS({compatibility: 'ie8'})
 		)
 		.pipe(
+			gulpif(argv.compress, rev())
+		)
+		.pipe(
 			gulp.dest(distPaths.styles)
 		);
 });
@@ -153,6 +157,12 @@ gulp.task('styles', function() {
 		)
 		.pipe(
 			gulpif(argv.compress, rev())
+		)
+		.pipe(
+			gulpif(argv.compress, uglifycss({
+				"maxLineLen": 80,
+				"uglyComments": true
+			}))
 		)
 		.pipe(
 			gulp.dest(distPaths.styles)
