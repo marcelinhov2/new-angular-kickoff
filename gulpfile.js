@@ -133,9 +133,6 @@ gulp.task('scripts', function() {
 			jshint.reporter('default')
 		)
 		.pipe(
-			gulpif(argv.compress, jshint.reporter('default'))
-		)
-		.pipe(
 			gulpif(argv.compress, uglify())
 		)
 		.pipe(
