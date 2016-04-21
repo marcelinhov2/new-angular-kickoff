@@ -5,7 +5,13 @@
 		$scope
 	){
 		function init(){
-			$scope.test = 'home';
+			// @if NODE_ENV='testing'
+			$scope.test = 'testing';
+			// @endif 
+
+			// @if NODE_ENV='production'
+			$scope.test = 'production';
+			// @endif 
 		}
 
 		init();
