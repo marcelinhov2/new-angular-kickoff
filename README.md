@@ -39,7 +39,7 @@ Ao finalizar, ele roda também o comando ```bower install``` para dependências 
 ```gulp build --compress``` ou ```make dist```
 
 ```sh
-angular-kickoff
+new-angular-kickoff
   dist                     
   ├── index.html          
   ├── scripts             
