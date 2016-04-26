@@ -12,14 +12,17 @@ remove_remote:
 server:
 	@$(GU) up
 
+prodServer:
+	@$(GU) up --compress
+
 compile:
 	@$(GU) compile
 
 build:
+	@$(GU) build
+
+dist:
 	@$(GU) build --compress
 
 karma:
-	@$(KA) start tests/karma-tests/karma.conf.js
-
-# protractor:
-# 	@$(PR) tests/e2e-tests/protractor-conf.js
+	@$(KA) start tests/karma-tests/karma.conf.js 
