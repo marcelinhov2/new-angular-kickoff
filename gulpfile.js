@@ -232,7 +232,7 @@ gulp.task('partials', function() {
 gulp.task('index', function() {
 	var scripts, styles;
 
-	styles = distPaths.styles + "/**/*.css";
+	styles = folder + "/assets/styles/**/*.css";
 	
 	if(argv.compress){
 		scripts = [
@@ -270,10 +270,12 @@ gulp.task('server', function() {
 		port: 1337,
 		root: folder,
 		base: 'http://localhost',
-		livereload: true,
-		fallback: folder + '/index.html'
+		fallback: folder + '/index.html',
+		livereload: !argv.compress
 	});
-	open('http://localhost:1337');
+
+	if(!argv.compress)
+		open('http://localhost:1337');
 });
 
 gulp.task('reload', function() {

@@ -1,7 +1,14 @@
 {
 	"name": "new-angular-kickoff",
 	"scripts": {
-		"postinstall": "bower install --allow-root"
+		"postinstall": "bower install --allow-root",
+		"test": "make build && make karma",
+		"start": "make prodServer",
+		"remove-remote" : "rm -rf .git",
+		"server" : "./node_modules/.bin/gulp up",
+		"compile" : "./node_modules/.bin/gulp compile",
+		"build" : "./node_modules/.bin/gulp build --compress",
+		"tests" : "./node_modules/karma/bin/karma start tests/karma-tests/karma.conf.js"
 	},
 	"devDependencies": {
 		"bower": "latest",
@@ -34,12 +41,5 @@
 		"run-sequence": "latest",
 		"yargs": "latest",
 		"gulp-uglifycss": "^1.0.6"
-	},
-	"scripts" : {
-		"remove-remote" : "rm -rf .git",
-		"server" : "./node_modules/.bin/gulp up",
-		"compile" : "./node_modules/.bin/gulp compile",
-		"build" : "./node_modules/.bin/gulp build --compress",
-		"tests" : "./node_modules/karma/bin/karma start tests/karma-tests/karma.conf.js"
 	}
 }
